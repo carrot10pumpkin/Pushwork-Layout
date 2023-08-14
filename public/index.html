@@ -1,0 +1,950 @@
+
+<html data-theme="night" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Pushwork Layout</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" type="text/css" href="css/tailwind.css" media="screen" />
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body class="bg-base-100">
+
+
+<!-- Navigation -->
+<!-- component -->
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+
+    <nav class=" z-50 top-0 sticky absolute w-full bg-base-100 "
+    >
+      <div class="antialiased ">
+      <div id="nav" class="w-full text-gray-50 bg-transparent dark-mode:text-gray-200 dark-mode:bg-gray-800">
+        <div x-data="{ open: false }" class="flex flex-col max-w-[85rem] px-4 mx-auto pt-4 md:items-center md:justify-between md:flex-row md:px-6 lg:px-1">
+          <div class="flex flex-row items-center justify-between p-4">
+            <svg  class="stroke-stone-50 h-7" viewBox="0 0 120 120">
+                
+              <circle  cx="60" cy="60" r="54" fill="none"  stroke-width="12" pathLength="100" />
+          </svg>
+            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open, }" class="  flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+            <a class=" px-4 py-4 mt-2 text-xs uppercase font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home</a> 
+            <a class=" px-4 py-4 mt-2 text-xs uppercase  font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Services</a>
+            <a class=" px-4 py-4 mt-2 text-xs uppercase   font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">about</a>
+            <a class=" px-4 py-4 mt-2 text-xs uppercase font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">team</a>
+            <a class=" px-4 py-4 mt-2 text-xs uppercase  font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">blog</a>
+            <a class=" px-4 py-4 mt-2 text-xs uppercase  font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">login</a>
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+              <button @click="open = !open" class="flex flex-row text-gray-200 bg-gray-200 items-center w-full px-4 py-4 mt-2 text-xs uppercase  font-semibold text-left bg-gray-700 rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <span>sign up</span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <!-- <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                      <div class="bg-teal-500 text-white rounded-lg p-3">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                      </div>
+                      <div class="ml-3">
+                        <p class="font-semibold">Appearance</p>
+                        <p class="text-sm">Easy customization</p>
+                      </div>
+                    </a>
+    
+                    <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                      <div class="bg-teal-500 text-white rounded-lg p-3">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                      </div>
+                      <div class="ml-3">
+                        <p class="font-semibold">Comments</p>
+                        <p class="text-sm">Check your latest comments</p>
+                      </div>
+                    </a>
+    
+                    <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                      <div class="bg-teal-500 text-white rounded-lg p-3">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                      </div>
+                      <div class="ml-3">
+                        <p class="font-semibold">Analytics</p>
+                        <p class="text-sm">Take a look at your statistics</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div> -->
+            </div>    
+          </nav>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+<!-- This is an example component -->
+
+<!-- <nav class="navbar bg-transparent px-4 py-10 mb-56 lg:mb-36 mx-auto font-montserrat  ">
+  
+
+  
+<div class="container px-auto mx-auto">
+
+ 
+          <div class=" flex-1 lg:mx-20">
+
+            <button class="btn btn-link lg:ml-[20px] lg:mr-[500px] ">
+
+              <svg  class="stroke-stone-50 h-7" viewBox="0 0 120 120">
+                
+                <circle  cx="60" cy="60" r="54" fill="none"  stroke-width="12" pathLength="100" />
+            </svg>
+                  </button>
+  
+            <div class="dropdown ml-32 ">
+              <label tabindex="0" class="btn btn-ghost  lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              </label>
+              <ul tabindex="0" class="menu menu-compact dropdown-content mr-28   mt-3 p-2  pr-  shadow rounded-box ">
+                <li><a class="text-gray-200">Home</a></li>
+            
+                <li><a>Services</a></li>
+
+              <li><a>About</a></li>
+
+              <li><a>Team</a></li>
+              <li><a>Blog</a></li>
+              <li><a>Login</a></li>
+
+              </ul>
+            </div>    
+
+           
+
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 text-sm font-bold text-gray-500 uppercase">
+              <li><a class="text-gray-200">Home</a></li>
+            
+              <li><a>Services</a></li>
+
+              <li><a>About</a></li>
+
+              <li><a>Team</a></li>
+              <li><a>Blog</a></li>
+              <li><a>Login</a></li>
+
+              <li class="ml-8"><a class="btn uppercase font-bold px-8 text-gray-200  text-xs">sign up</a></li>
+            </ul>
+          </div>
+          
+        
+        
+      </div> 
+       
+    </nav> -->
+
+    <!-- Section 1  -->
+
+    <section id= home class="bg-transparent lg:w-full relative  ">
+   
+
+
+      <div class="  mx-auto px-4 lg:px-56   ">
+        
+        
+       
+
+        
+        
+        <article class="grid lg:grid-cols-2  gap-10 items-center justify-items-centermt mt-48  lg:mt-60  ">
+        <div class="  order-1 lg:order-1  flex flex-col justify-center items-start sm:px-10   lg:-mt-16 lg:pl-20 lg:pr-32  mb-20   ">
+
+            <div class=" ">
+          <p class=" text-3xl lg:text-4xl text-zinc-400 font-normal leading-relaxed   text-left font-montserrat  "> Inject Your Brand and
+            <br>
+
+       Values into a Physical Space</p>
+          
+          
+          <p class="text-zinc-200 text-left font-thin  break-all leading-loose mt-5  font-montserrat ">Place an order now, and our creative wordsmiths are on it like dots on Is with all that's necessary. Reduces your total IoT cost of operations.</p>
+         
+
+          <div class="text-left px-4 lg:px-0">
+            <button class="btn  text-xs  bg-slate-50 text-black py-2 lg:px-10  mt-10 lg:mr-0 uppercase lg:tracking-widest">order content</button>
+
+
+            <span class="align-middle inline-block lg:ml-5 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg></span>
+            
+            
+            <a class=" uppercase text-sm font-bold align-middle inline-block lg:ml-4">create an account</a>
+         
+         </div>
+
+          </div>
+        </div>
+
+          
+
+          
+            <div class="flex flex-col justify-center items-center order-1 lg:order-2 z-40 shadow-2xl p-8 rounded-2xl bg-gray-500  ">
+              <div class=" bg-slate-200 p-8 lg:px-48 lg:py-32 rounded">
+              <img class="mask mask-square lg:w-32    " src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" />
+            </div>
+            
+            </div>
+         
+        </article>
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+       <!-- Divider -->
+       <svg
+       class="bottom-0 overflow-hidden absolute  "
+       xmlns="http://www.w3.org/2000/svg"
+       preserveAspectRatio="none"
+       version="1.1"
+       viewBox="0 0 2560 100"
+       x="0"
+       y="0"
+     >
+       <polygon
+         class="text-slate-50 fill-current  "
+         points="2560 0 2560 100 0 100"
+       ></polygon>
+     </svg>
+ 
+
+      </section>
+  
+
+
+
+
+
+         <!-- Section 2  -->
+
+    <section class="bg-slate-50  relative">
+      <div class=" container lg:ml-auto pt-20 lg:pr-9 lg:pl-72  pb-7">
+        <main class=" grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-1 px-40  lg:pl-72  text-slate-50 text-lg font-bold text-center p-9"> 
+      
+          <div class="tile font-bold text-center w-11 ">
+
+            
+     
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="   h-11 ml-3  text-neutral-400" aria-hidden="true">
+          <path
+            fill-rule="evenodd"
+            d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      
+          </div>
+
+          <div class="tile  text-lg font-bold text-center  w-11   rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" h-11 ml-3   text-neutral-400" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          
+          </div>
+
+
+          <div class="tile  text-center  w-11  rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" h-11 ml-3   text-neutral-400"  aria-hidden="true" >
+              <path
+                fill-rule="evenodd"
+                d="M6.625 2.655A9 9 0 0119 11a1 1 0 11-2 0 7 7 0 00-9.625-6.492 1 1 0 11-.75-1.853zM4.662 4.959A1 1 0 014.75 6.37 6.97 6.97 0 003 11a1 1 0 11-2 0 8.97 8.97 0 012.25-5.953 1 1 0 011.412-.088z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M5 11a5 5 0 1110 0 1 1 0 11-2 0 3 3 0 10-6 0c0 1.677-.345 3.276-.968 4.729a1 1 0 11-1.838-.789A9.964 9.964 0 005 11zm8.921 2.012a1 1 0 01.831 1.145 19.86 19.86 0 01-.545 2.436 1 1 0 11-1.92-.558c.207-.713.371-1.445.49-2.192a1 1 0 011.144-.83z"
+                clip-rule="evenodd"
+              />
+              <path fill-rule="evenodd" d="M10 10a1 1 0 011 1c0 2.236-.46 4.368-1.29 6.304a1 1 0 01-1.838-.789A13.952 13.952 0 009 11a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+
+          </div>
+
+
+
+          <div class="tile  font-bold text-center  w-11  rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" h-11   ml-3   text-neutral-400"  aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+
+
+
+          <div class="tile font-bold text-center  w-11  rounded-lg">
+        
+              <!-- Air bnb-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-11  ml-3   text-neutral-400"  aria-hidden="true">
+                <path
+                  d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"
+                />
+              </svg>
+          </div>
+
+
+
+          <div class="tile text-lg font-bold  w-11  text-center ">
+            
+              <!-- Air bnb-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-11  ml-3    text-neutral-400"  aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1V4a1 1 0 00-1-1h-3zm1 2v1h1V5h-1z"
+                  clip-rule="evenodd"
+                />
+                <path
+                  d="M11 4a1 1 0 10-2 0v1a1 1 0 002 0V4zM10 7a1 1 0 011 1v1h2a1 1 0 110 2h-3a1 1 0 01-1-1V8a1 1 0 011-1zM16 9a1 1 0 100 2 1 1 0 000-2zM9 13a1 1 0 011-1h1a1 1 0 110 2v2a1 1 0 11-2 0v-3zM7 11a1 1 0 100-2H4a1 1 0 100 2h3zM17 13a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM16 17a1 1 0 100-2h-3a1 1 0 100 2h3z"
+                />
+              </svg>
+          </div>
+
+
+
+          <div class="tile text-lg font-bold  w-11   text-left  ">
+            
+              <!-- Air bnb-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-11 ml-3   text-neutral-400"  aria-hidden="true">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+              </svg>
+          </div>
+        </div>
+        </main>
+     </div>
+
+
+    </section>
+
+   <!-- Section 3  -->
+   <section class="bg-slate-50">
+    <div class="  container mx-auto">
+      <article class=" text-slate-50 text-lg font-bold text-center p-14">
+      
+      
+        <article class="grid lg:grid-cols-2 gap-36  items-center justify-items-center">
+          <div class=" prose prose-slate text-slate-950 order-1 lg:order-1  flex flex-col  text-left mb-5  lg:mb-0 bg-slate-50">
+
+
+            <h3 class="  mb-5 text-left text-slate-950 text-sm  uppercase"> how we can help your business</h3>   
+<h2 class="  mb-6 text-lg text-left  md:text-2xl   text-slate-950 font-thin max-w-md"> We Are Full-Service Marketing and Design Firm</h2>
+<p class="  text-left  font-thin  text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+<p class=" text-left font-thin text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+           
+            <button class="btn text-md mx-auto lg:ml-0  bg-black text-white py-2 px-11 mt-10 uppercase  font-thin  ">order content</button>
+
+          </div>
+
+          
+            <div class="flex flex-col  order-1 lg:order-2 text-xs pt-" >
+
+                <div class=" m-auto  grid lg:grid-cols-2 grid-rows-2 lg:gap-12   ">
+
+                 
+
+                    <div class="card lg:w-72 h-72 bg-slate-50 text-xs text-primary-content  shadow-xl">
+                      <figure><img  src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&ixlib=rb-4.0.3&q=80&w=1080" alt="Shoes" /></figure>
+                      <div class="card-body">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                          
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                 
+
+
+
+                    <div class="card  w-52 lg:w-72 h-72 bg-slate-50 text-xs text-primary-content  shadow-xl">
+                      <figure><img  src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&ixlib=rb-4.0.3&q=80&w=1080" alt="Shoes" /></figure>
+                      <div class="card-body">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                          
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="card  w-52 lg:w-72 h-72 bg-slate-50 text-xs text-primary-content  shadow-xl">
+                      <figure><img  src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&ixlib=rb-4.0.3&q=80&w=1080" alt="Shoes" /></figure>
+                      <div class="card-body">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card  w-52 lg:w-72 h-72 bg-slate-50 text-xs text-primary-content  shadow-xl">
+                      <figure><img  src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&ixlib=rb-4.0.3&q=80&w=1080" alt="Shoes" /></figure>
+                      <div class="card-body">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                          
+                        </div>
+                      </div>
+                    </div>
+
+            </div>
+         
+        </article>
+
+      </article>
+    </div>
+  </section>
+
+
+
+   <!-- Section 4 -->
+   <section class="bg-slate-50">
+    <div class="  container px-4 mx-auto">
+      <article class=" bg-transparent text-slate-50 text-lg font-bold text-center p-14">
+      
+      
+        <article class="grid lg:grid-cols-2 gap-40 lg:gap-64   items-center justify-items-center ">
+
+
+          <div class=" bg-slate-200  px-16   lg:px-48  lg:py-14 rounded">
+            <img class="mask mask-squircle w-36 h-80 lg:h-96  " src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" />
+          </div>
+
+
+        
+            <div class=" prose prose-slate text-slate-950 order-1 lg:order-1  flex flex-col  items-start text-left mb-5  lg:mb-0 bg-slate-50">
+
+
+              <h3 class="   text-left  text-slate-950 text-sm uppercase"> Form this standpoint </h3>   
+  <h2 class="  mb-3 text-lg text-left  md:text-2xl  text-slate-950 font-thin max-w-md"> We Are Full-Service Marketing and Design Firm</h2>
+  <p class="  text-left  font-thin   text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+  <p class=" text-left font-thin  text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+             
+  <button class="btn text-md mx-auto lg:ml-0  bg-black text-white py-2 px-11 mt-10 uppercase  font-thin  ">order content</button>
+  
+         
+          </div>
+
+      
+            
+        </article>
+
+      </article>
+    </div>
+  </section>
+
+
+
+
+      <!-- Section 5  -->
+      <section class="bg-slate-50">
+        <div class=" container  mx-auto">
+          <article class=" bg-transparent text-slate-50   p-14 pt-24">
+
+            <div>
+             
+              <p class="mb-5 uppercase text-xs sm:text-sm lg:text-xl font-thin tracking-[.2rem]  text-slate-950 text-center">How Does It Work?</p>
+       
+              <p class="mb-20 max-w-2xl mx-auto text-center text-lg font-thin leading-loose lg:leading-loose  text-slate-950">
+                  Accusamus sunt autem quia sint. Sint reprehenderit sint eius odio. Aspernatur saepe doloremque et eius et velit.
+              </p>
+
+
+              </div>
+
+              <article class="grid lg:grid-cols-2 gap-48  items-center justify-items-center ">
+
+
+                <div class="flex flex-col justify-center items-center order-2 lg:order-1 ">
+            
+              
+          <div class=" bg-slate-200  px-16   lg:px-48  lg:py-14 rounded">
+            <img class="mask mask-squircle w-36 h-80 lg:h-96  " src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" />
+          </div>
+
+
+                  
+                   </div>
+                     
+            
+            
+                   
+            <div class=" prose prose-slate text-slate-950 order-1 lg:order-1  flex flex-col  items-start text-left mb-5  lg:mb-0 bg-slate-50">
+
+
+              <h3 class=" mx-auto lg:mx-0  lg:text-left    text-slate-950  text-sm uppercase"> Form this standpoint </h3>   
+  <h2 class="  mb-3 text-lg  text-center lg:text-left  text-slate-950 md:text-2xl  font-thin max-w-md"> We Are Full-Service Marketing and Design Firm</h2>
+  <p class=" text-center lg:text-left  font-thin   text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+  <p class=" text-center lg:text-left font-thin  text-slate-950">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+             
+  <button class="btn text-md mx-auto lg:ml-0  bg-black text-white py-2 px-11 mt-10 uppercase  font-thin  ">order content</button>
+  
+         
+          </div>
+                  
+                        
+                    </article>
+                    <button class="btn text-xs mx-auto   text-white py-2 px-11 mt-28 mr-5 uppercase bg-slate-700">view how it works</button>
+            
+          </article>
+        </div>
+      </section>
+
+         <!-- Section 6  -->
+
+
+         <section class="bg-slate-50">
+          <div class=" container px-4 mx-auto">
+            <article class=" bg-transparent text-slate-50 text-lg font-bold text-center p-14">
+            
+            
+              <article class="grid lg:grid-cols-2   items-start justify-items-start ">
+                <div class=" order-1 lg:order-1  flex flex-col justify-center items-start  text-green-500  p-5 rounded-lg">
+      
+                  <p class="  mb-3 text-center lg:text-left text-gray-500 text-xs dark:text-gray-400 uppercase">create an account for free </p>
+                  <p class="text-gray-500 text-center lg:text-left  text-xl dark:text-gray-400">Core Freatures and Technologies List</p>
+                  
+                             
+                            
+      
+                </div>
+      
+                
+              </article>
+      
+            </article>
+          </div>
+        </section>
+
+
+
+            <!-- Section 7  -->
+
+            <section class="bg-slate-50">
+             
+
+
+
+              <svg
+              class="bottom-1 overflow-hidden stroke-base-100"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+              
+            >
+              <polygon
+                class=" text-base-100 fill-current"
+                points="2560 0 2560 200 0 100"
+              ></polygon>
+            </svg>
+
+            </section>
+    
+
+               <!-- Section 8  -->
+
+               <section class="bg-base-100   py-24 lg:py-32  ">
+                <div class=" container  px-4 mx-auto">
+
+                  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:p-5">
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                       
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                      </div>
+
+
+                    </div>
+
+                    <div class="bg-slate-50 text-slate-950 text-lg font-bold text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                       
+                      </div>
+
+
+                    </div>
+
+
+                 
+                    <div class="bg-slate-50 text-slate-950 text-lg font-bold text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                       
+                      </div>
+
+
+                    </div>
+
+
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                       
+                      </div>
+
+
+                    </div>
+
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                       
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                      </div>
+
+
+                    </div>
+
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                       
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                      </div>
+
+
+                    </div>
+                    
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                       
+                      </div>
+
+
+                    </div>
+
+                    <div class="bg-slate-50 text-slate-950 text-lg text-center p- rounded-lg">
+                      <div class="card-body text-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd"><path serif:id="shape 14" d="M7.611 0c-2.753 0-4.516.054-6.038 1.575-1.633 1.633-1.573 3.544-1.573 6.681v7.49c0 3.136-.061 5.044 1.573 6.68 1.523 1.525 3.284 1.574 6.075 1.574h8.721c2.777 0 4.534-.051 6.057-1.574 1.635-1.634 1.574-3.546 1.574-6.68v-7.49c0-3.101.07-5.038-1.574-6.681-1.527-1.525-3.283-1.575-6.074-1.575h-8.741zm0 2c.534.001 8.212.001 8.741 0 2.719 0 3.751.082 4.66.989.953.953.991 2.119.988 4.899v8.188c.002 2.931-.045 3.994-.988 4.935-.908.908-1.936.989-4.643.989h-8.721c-2.721 0-3.754-.081-4.66-.987-.943-.945-.99-2.007-.988-4.939v-8.142c-.002-2.937.045-4 .987-4.943.909-.908 1.932-.989 4.624-.989"/></svg>
+                        <h2 class="card-title">Card title!</h2>
+                       
+                        <p class="text-left font-thin text-sm">Not only fitness classes should be fun, but also their internal management.</p>
+                      </div>
+
+
+                    </div>
+
+                    
+                    
+                </div>
+                 
+                </div>
+              </section>
+      
+          
+    
+
+
+
+                  <!-- Section 9  -->
+
+
+                  <section class="bg-slate-100">
+                    <div class="  container px-4 py-10 mx-auto">
+                      <article class=" bg-transparent text-slate-50 text-lg font-bold text-center p-14">
+                      
+                      
+              <article class="grid lg:grid-cols-2  gap-14   items-center justify-items-center ">
+
+
+                <div class="flex flex-col justify-center items-center order-2 lg:order-1   text-green-500 ">
+                  <div class=" bg-slate-200  px-16   lg:px-48  lg:py-14 rounded">
+                    <img class="mask mask-squircle w-36 h-80 lg:h-96  " src="https://images.unsplash.com/photo-1517945471088-0c62fbeb92ce?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzODEyODR8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBkYXJrJTIwbmF0dXJlfGVufDB8Mnx8fDE2Njg2NTEwMTA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" />
+                  </div>
+                        </div>
+                     
+            
+            
+                        <div class=" prose prose-slate text-slate-950 order-1 lg:order-1  flex flex-col  items-start text-left mb-5  lg:mb-0">
+
+
+                          <h3 class=" mx-auto text-center lg:text-left  text-slate-950   text-sm uppercase"> Form this standpoint </h3>   
+              <h2 class="  mb-3 text-lg text-center lg:text-left  md:text-2xl  text-slate-950   font-thin max-w-md"> We Are Full-Service Marketing and Design Firm</h2>
+              <p class="  text-center lg:text-left  font-thin   text-slate-950  ">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+              <p class=" text-center lg:text-left font-thin  text-slate-950  ">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+                         
+              <button class="btn text-md mx-auto lg:ml-0  bg-black text-white py-2 px-11 mt-10 uppercase  font-thin  ">order content</button>
+              
+                     
+                      </div>
+                  
+                        
+                    </article>
+                
+                      </article>
+                    </div>
+                  </section>
+
+
+            
+
+                        <!-- Section 10 Slide Show  -->
+
+
+                  <section class="bg-slate-50">
+                    <div class="  container px-4 mx-auto">
+                      <article class="bg-transparent text-slate-50 text-lg font-bold text-center p-14">
+                     
+
+                        <!-- component -->
+<!-- This is an example component -->
+<div class="w-full mx-auto">
+
+	<div id="default-carousel" class="relative " data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="overflow-hidden relative h-56  rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                <div class="text-left md:text-center  lg:px-44 lg:py-36 block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2  bg-slate-50">
+                  <p class="mb-8 text-xs font-bold tracking-widest text-purple-800 uppercase">Why Companies Love Us</p>
+                  <h1 class="mb-10 font-serif lg:text-xl italic font-thin text-gray-800 md:leading-snug md:text-3xl">
+                    “We endeavour to build a truly human AND high-performing workplace, where everyone can do the best work of their lives. This product is a key part of facilitating this culture by being our
+                    one-stop-shop for all things performance development.”
+                  </h1>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+              <div class="text-left md:text-center  px-44 py-36 block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2  bg-slate-50">
+                <p class="mb-8 text-xs font-bold tracking-widest text-purple-800 uppercase">Why Companies Love Us</p>
+                <h1 class="mb-10 text-2xl font-extrabold text-purple-900 md:leading-tight md:text-3xl">
+                  “Hellonext is an excellent tool that helps product teams to
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500">receive and prioritize</span> customer feature requests in a frictionless way”
+                </h1>
+              </div>
+          </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+              <div class="text-left md:text-center  px-44 py-36 block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2  bg-slate-50">
+                <p class="mb-8 text-xs font-bold tracking-widest text-purple-800 uppercase">Why Companies Love Us</p>
+                <h1 class="mt-3 mb-10 text-xl font-extrabold text-black md:leading-snug md:text-3xl">
+                  “Implementation is a breeze, particularly because the team at Hellonext is
+                  <span class="text-white bg-transparent bg-clip-border xl:bg-clip-text xl:text-transparent xl:bg-gradient-to-r from-green-400 to-purple-500"> very fast to respond and help </span>
+                  where needed, even if it means rolling out new features on their platform.  We're super happy and are loving how Hellonext brings us closer to the members of our community“
+                </h1>
+              </div>
+          </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <span class="hidden">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="hidden">Next</span>
+            </span>
+        </button>
+    </div>
+
+	
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+
+
+
+
+    
+</div>
+
+
+
+                      
+                      </article>
+                    </div>
+                  </section>
+
+            <!-- Section 11  -->
+
+
+                  <section class="bg-transparent">
+                    <div class="  container lg:py-16 lg:px-40 mx-auto">
+                      <article class=" bg-transparent text-slate-50 font-Montserrat  text-center p-9">
+                      
+                      
+                        <article class="grid lg:grid-cols-2   items-center justify-items-center">
+                          <div class=" text-left  rounded-lg">
+                
+                            
+                            <p class="mt-2 text-sm uppercase  text-zinc-400  ">Place An order Now and our all guys</p>
+                            <p class="mt-2  md:text-2xl   ">Take your team anywhere to go.</p>
+                
+                          </div>
+                
+                          
+                            <div class="flex flex-col justify-center items-center order-1 lg:order-2   text-green-500 ">
+                              <div class="block">
+                                <button class="btn text-xs   text-white py-2 px-5 mt-10 mr-2 lg:mr-5 uppercase bg-slate-700">order content</button>
+                                <button class="btn text-xs  text-zinc-950 py-2 px-6 mt-10  uppercase   bg-gray-50  ">contact us</button>
+                              </div>
+                             
+                            </div>
+                         
+                        </article>
+                
+                      </article>
+                    </div>
+                  </section>
+
+<!-- Section 12 Footer -->
+
+
+
+
+
+  <section class="bg-slate-50">
+    <footer class="footer p-10  lg:px-48  bg-transparent  text-zinc-400 text-sm">
+      <div>
+        <span class="footer-title">Circlecircle ltd</span> 
+        <p class="font-Montserrat w-64 text-left "> On our way to office, we start preparing for the day in our minds</p>
+        <a class="link link-hover">Careers</a> 
+        <a class="link link-hover">+1 718 22 22 222</a> 
+        <a class="link link-hover">hello@circlecircle.com</a> 
+      </div> 
+      <div>
+        <span class="footer-title">products</span> 
+        <a class="link link-hover text-blue-950">Messaging API</a> 
+        <a class="link link-hover">Content Pricing</a> 
+        <a class="link link-hover">Integrations</a>
+        <a class="link link-hover">Channels</a> 
+        <a class="link link-hover">Documentation</a>
+        <a class="link link-hover">API Reference</a>
+      </div> 
+      <div class="pt-10">
+        <a class="link link-hover">API Libraries</a> 
+        <a class="link link-hover">Changelog</a> 
+        <a class="link link-hover">E-Books</a> 
+        <a class="link link-hover">Status</a>
+        <a class="link link-hover">Blogs</a>
+        <a class="link link-hover">Contact Sales</a>
+      </div> 
+
+
+      <div>
+        <span class="footer-title ">For users</span> 
+        <a class="link link-hover">Help Center</a> 
+        <a class="link link-hover">Learn More</a> 
+        <a class="link link-hover">Privacy & Terms</a> 
+        <a class="link link-hover">Prototyping</a>
+        <a class="link link-hover">Sketch Business</a>
+      </div> 
+
+
+      <div>
+        <span class="footer-title ">Information</span> 
+        <a class="link link-hover">Pricing</a> 
+        <a class="link link-hover">How it Works</a> 
+        <a class="link link-hover">Platform Features</a> 
+        <a class="link link-hover">Our Copywriters</a>
+        <a class="link link-hover">Contact Us</a>
+        <a class="link link-hover">Testimonials</a>
+      </div> 
+
+    
+
+      <div>
+        <span class="footer-title "> Resources</span> 
+        <a class="link link-hover">Help Docs</a> 
+        <a class="link link-hover">FAQ's</a> 
+        <a class="link link-hover">Content Marketing Blog</a> 
+        <a class="link link-hover">Case Studies</a>
+        <div class="grid grid-flow-col gap-4 pt-7">
+          <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
+          <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
+          
+          
+
+
+          
+          <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+
+
+
+
+          
+        </div>
+      </div>
+    </footer>
+
+
+  
+
+    
+  </section>
+
+
+
+  <script  src="js/script.js"></script>  
+
+ 
+</body>
+</html>
